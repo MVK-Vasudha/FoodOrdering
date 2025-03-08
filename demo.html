@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pop-Up</title>
+    <link rel="stylesheet" href="Demo.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Heading</h2>
+        <button id="butt">Click</button>
+    </div>
+    <div class="popup">
+        <div class="popup-content">
+            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=250&ixid=MnwxfDB8MXxyYW5kb218MHx8Rm9vZHx8fHx8fDE3MTM2MjA4Njk&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=250" alt="">
+                <h2>Pizza</h2>
+                <h3>Quantity ordered : <span>777</span></h3>
+                <h3>Total Cost : <span>777</span></h3> 
+            <br><button id="close">Close</button>
+
+        </div>
+    </div>
+    <script>
+        document.getElementById('butt').addEventListener("click",function(){
+            document.querySelector(".popup").style.display ="flex";
+            console.log("HEllo")
+        })
+        document.getElementById('close').addEventListener("click",function(){
+            document.querySelector(".popup").style.display ="none";
+        })
+    </script>
+</body>
+</html>

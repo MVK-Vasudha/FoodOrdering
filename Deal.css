@@ -1,0 +1,23 @@
+@import url(Items.css);
+.col img{
+    height: 200px;
+    width: 320px;
+}
+.col{
+    background-color: white;
+}
+.col p{
+    text-align: bottom;
+}
+.butt{
+    margin: 10px;
+    border-radius: 25%;
+    color:brown;
+    background-color: white;
+    border: 1px solid brown;
+    width: 100px;
+    transition-duration: 0.25s;
+}
+.butt:hover{
+    background-color: bisque;
+}

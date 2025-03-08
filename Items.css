@@ -1,0 +1,88 @@
+@import url(Main.css);
+@import url(Menu.css);
+.col img{
+    width: 225px;
+    height: 169px;
+}
+.col{
+    height: 400px;
+}
+.card-body p{
+    font-size:small;
+}
+.card-body h6{
+    font-weight: 700;
+}
+.rate{
+    font-weight: 700;
+}
+.counter button,input{
+    width: 2rem;
+    height: 2rem;
+    border-radius: 20%;
+    align-self: center;
+    margin: 1% 0%;
+    border: 2px solid brown;
+    color: brown;
+    text-align: center;
+    /* background-color: bisque; */
+}  
+.breadcrumb{
+    margin-top: 2%;
+    margin-left: 5%;
+} 
+.breadcrumb a,.breadcrumb li{
+    color: brown;
+}
+.popup{
+    background: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+.popup-content{
+    height: 500px;
+    width: 500px;
+    background: #fff;
+    /* padding: 25px; */
+    border-radius: 5px;
+    text-align: center;
+}
+.popup-form input{
+    width: fit-content;
+    border: none;
+    text-align: start;
+}
+.popup-form #close{
+    margin-left: 1%;
+}
+.popup-form{
+    color: brown;
+}
+.popup-content img{
+    /* margin-left: auto;
+    margin-right: auto; */
+    width : 250px;
+    height: 250px;
+    display: block;
+    margin: 25px auto;
+}
+.popup-content .flex
+{
+    width: 500px;
+    margin-left: auto;
+    margin: auto;
+    margin-right: auto;
+    align-content: center;
+    display: flex;
+    text-align: center;
+}
+.popup-content .flex .flex-content{
+    width: 500px;
+    display: flex;
+    text-align: center;
+}

@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <style>
+        #toast-close {
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: .25rem .75rem;
+            margin: .125rem .25rem;
+            background-color: rgba(255, 255, 255, 0.6);
+            /* Adjust opacity as needed */
+            border: 0;
+            border-radius: 0;
+            cursor: pointer;
+        }
+
+        #toast-close:hover {
+            background-color: rgba(255, 255, 255, 0.85);
+            /* Adjust opacity as needed */
+        }
+
+        #myToast {
+            position: fixed;
+            bottom: 20px;
+            /* Adjust this value as needed */
+            right: 20px;
+            /* Adjust this value as needed */
+            z-index: 1050;
+            /* Ensure it's above other content */
+        }
+    </style>
+    <link rel="stylesheet" href="Items.css">
+</head>
+
+<body>
+
+    <!-- -------------------------------------------------NavBar-------------------------------------------------- -->
+    <nav class="navbar navbar-expand-lg " id="main-nav">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="Main.html">
+                <img src="https://img.freepik.com/free-vector/food-shopping-logo-template-design_460848-10299.jpg?size=626&ext=jpg&ga=GA1.1.2082370165.1711411200&semt=ais"
+                    id="nav-img">
+                Fast Foodzz
+            </a>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mx-5 mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="Main.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="Menu.html">Our Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Deal.html">Deals</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Contact.html">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Cart.php">Your Cart</a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="Menu.html">Menu</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><a href="Pizza.html">Pizza</a></li>
+        </ol>
+    </nav>
+
+
+    <div class="popup">
+        <div class="popup-content">
+            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=250&ixid=MnwxfDB8MXxyYW5kb218MHx8Rm9vZHx8fHx8fDE3MTM2MjA4Njk&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=250"
+                id="image">
+            <!-- <input type="text" value="Lemon" name="dem">
+                <h2><span id="name">Pizza</span></h2>
+                <h6>Quantity ordered : <span id="count"></span></h6>
+                <h6>Total Cost : <span id="cost"></span></h6>
+                <br><button id="close">Close</button>
+                <button onclick="test()">Submit</button> -->
+            <form id="popup-form" class="popup-form" method="post">
+                Name : <input type="text" name="name" value="" id="name"><br>
+                Quantity : <input type="text" name="count" value="" id="count"><br>
+                Cost : <input type="text" name="cost" value="" id="cost"><br>
+                <input type="submit" name="submit" value="Submit"><input type="button" name="close" value="Close"
+                    id="close">
+            </form>
+        </div>
+    </div>
+    <!-- --------------------------------------------------Items--------------------------------- -->
+
+    <div class="container text-center">
+        <div class="row">
+            <div class="col">
+                <a href=""><img src="https://www.dominos.co.in/files/items/Margherit.jpg" class="card-img-top"
+                        alt="..."></a>
+                <div class="card-body">
+                    <h5 class="card-title"><span>Margherita</span> <br><span class="rate"
+                            value="79">79</span>/-<br><span class="badge text-bg-success">Veg</span> </h5>
+                    <p class="card-text">A hugely popular margherita, with a deliciously tangy single cheese topping</p>
+                    <div class="counter">
+                        <button class="decr">-</button>
+                        <input class="num" value="0">
+                        <button class="incr">+</button>
+                    </div>
+                    <a href="#" class="btn btn-primary">Add to Cart</a>
+                </div>
+            </div>
+            <div class="col">
+                <a href=""><img src="https://www.dominos.co.in/files/items/Peppy_Paneer.jpg" class="card-img-top"
+                        alt="..."></a>
+                <div class="card-body">
+                    <h5 class="card-title"><span>Peppy Paneer</span><br><span class="rate"
+                            value="99">99</span>/-<br><span class="badge text-bg-success">Veg</span> </h5>
+                    <p class="card-text">Chunky paneer with crisp capsicum and spicy red pepper - quite a mouthful!</p>
+                    <div class="counter">
+                        <button class="decr">-</button>
+                        <input class="num" value="0">
+                        <button class="incr">+</button>
+                    </div>
+                    <a href="#" class="btn btn-primary">Add to Cart</a>
+                </div>
+            </div>
+            <div class="col">
+                <a href=""><img src="https://www.dominos.co.in/files/items/Mexican_Green_Wave.jpg" class="card-img-top"
+                        alt="..."></a>
+                <div class="card-body">
+                    <h5 class="card-title"><span>Mexican Green Wave</span><br><span class="rate"
+                            value="109">109</span>/-<br><span class="badge text-bg-success">Veg</span></h5>
+                    <p class="card-text">With crunchy onions, crisp capsicum, juicy tomatoes, jalapeno & Mexican herbs.
+                    </p>
+                    <div class="counter">
+                        <button class="decr">-</button>
+                        <input class="num" value="0">
+                        <button class="incr">+</button>
+                    </div>
+                    <a href="#" class="btn btn-primary">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col">
+                <a href=""><img src="https://www.dominos.co.in/files/items/Veg_Extravaganz.jpg" class="card-img-top"
+                        alt="..."></a>
+                <div class="card-body">
+                    <h5 class="card-title"><span>Veg Extravaganza</span><br><span class="rate"
+                            value="129">129</span>/-<br><span class="badge text-bg-success">Veg</span> </h5>
+                    <p class="card-text">Overload of golden corn, black olives, mushrooms,fresh tomatoes & jalapeno </p>
+                    <div class="counter">
+                        <button class="decr">-</button>
+                        <input class="num" value="0">
+                        <button class="incr">+</button>
+                    </div>
+                    <a href="#" class="btn btn-primary">Add to Cart</a>
+                </div>
+            </div>
+
+            <div class="col">
+                <a href=""><img src="https://www.dominos.co.in/files/items/Paneer_Makhni.jpg" class="card-img-top"
+                        alt="..."></a>
+                <div class="card-body">
+                    <h5 class="card-title"><span>Paneer Makhni</span><br><span class="rate"
+                            value="109">109</span>/-<br><span class="badge text-bg-success">Veg</span></h5>
+                    <p class="card-text">Paneer and Capsicum on Makhani Sauce makes it truly irresistable </p>
+                    <div class="counter">
+                        <button class="decr">-</button>
+                        <input class="num" value="0">
+                        <button class="incr">+</button>
+                    </div>
+                    <a href="#" class="btn btn-primary">Add to Cart</a>
+                </div>
+            </div>
+            <div class="col">
+                <a href=""><img src="https://www.dominos.co.in/files/items/IndianTandooriPaneer.jpg"
+                        class="card-img-top" alt="..."></a>
+                <div class="card-body">
+                    <h5 class="card-title"><span>Indi Tandoori Paneer</span><br><span class="rate"
+                            value="119">119</span>/-<br><span class="badge text-bg-success">Veg</span></h5>
+                    <p class="card-text">It is hot. It is spicy. It is oh-so-Indian. Tandoori paneer with capsicum</p>
+                    <div class="counter">
+                        <button class="decr">-</button>
+                        <input class="num" value="0">
+                        <button class="incr">+</button>
+                    </div>
+                    <a href="#" class="btn btn-primary">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container text-center">
+        <div class="row">
+            <div class="col">
+                <a href=""><img src="https://www.dominos.co.in/files/items/MicrosoftTeams-image_(14).png"
+                        class="card-img-top" alt="..."></a>
+                <div class="card-body">
+                    <h5 class="card-title"><span>Chicken Golden Delight</span><br><span class="rate"
+                            value="109">109</span>/-<br><span class="badge text-bg-danger">Non-Veg</span>
+                    </h5>
+                    <p class="card-text">Barbeque chicken with a topping of golden corn loaded with extra cheese.</p>
+                    <div class="counter">
+                        <button class="decr">-</button>
+                        <input class="num" value="0">
+                        <button class="incr">+</button>
+                    </div>
+                    <a href="#" class="btn btn-primary">Add to Cart</a>
+                </div>
+            </div>
+            <div class="col">
+                <a href=""><img src="https://www.dominos.co.in/files/items/MicrosoftTeams-image_(13).png"
+                        class="card-img-top" alt="..."></a>
+                <div class="card-body">
+                    <h5 class="card-title"><span>Non Veg Supreme</span><br><span class="rate"
+                            value="159">159</span>/-<br><span class="badge text-bg-danger">Non-Veg</span> </h5>
+                    <p class="card-text">Delight of Black Olives, Mushrooms, BBQ Chicken, Peri-Peri Chicken, Grilled
+                        Chicken</p>
+                    <div class="counter">
+                        <button class="decr">-</button>
+                        <input class="num" value="0">
+                        <button class="incr">+</button>
+                    </div>
+                    <a href="#" class="btn btn-primary">Add to Cart</a>
+                </div>
+            </div>
+            <div class="col">
+                <a href=""><img src="https://www.dominos.co.in/files/items/MicrosoftTeams-image_(15).png"
+                        class="card-img-top" alt="..."></a>
+                <div class="card-body">
+                    <h5 class="card-title"><span>Pepper Barbeque Chicken</span><br><span class="rate"
+                            value="129">129</span>/-<br><span class="badge text-bg-danger">Non-Veg</span>
+                    </h5>
+                    <p class="card-text">Try our all-new Pepper Barbecue Chicken and Cheese</p>
+                    <div class="counter">
+                        <button class="decr">-</button>
+                        <input class="num" value="0">
+                        <button class="incr">+</button>
+                    </div>
+                    <a href="#" class="btn btn-primary">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col">
+                <a href=""><img src="https://www.dominos.co.in/files/items/Pepper_Barbeque_&_Onion.jpg"
+                        class="card-img-top" alt="..."></a>
+                <div class="card-body">
+                    <h5 class="card-title"><span>Pepper Barbeque Onion</span><br><span class="rate"
+                            value="139">139</span>/-<br><span class="badge text-bg-danger">Non-Veg</span>
+                    </h5>
+                    <p class="card-text">Try our tasty Pepper Barbecue Chicken and Onion Pizza</p>
+                    <div class="counter">
+                        <button class="decr">-</button>
+                        <input class="num" value="0">
+                        <button class="incr">+</button>
+                    </div>
+                    <a href="#" class="btn btn-primary">Add to Cart</a>
+                </div>
+            </div>
+
+            <div class="col">
+                <a href=""><img src="https://www.dominos.co.in/files/items/MicrosoftTeams-image_(18).png"
+                        class="card-img-top" alt="..."></a>
+                <div class="card-body">
+                    <h5 class="card-title"><span>Indi Chicken Tikka</span><br><span class="rate"
+                            value="129">129</span>/-<br><span class="badge text-bg-danger">Non-Veg</span></h5>
+                    <p class="card-text">The wholesome flavour of tandoori masala with Chicken tikka.</p>
+                    <div class="counter">
+                        <button class="decr">-</button>
+                        <input class="num" value="0">
+                        <button class="incr">+</button>
+                    </div>
+                    <a href="#" class="btn btn-primary">Add to Cart</a>
+                </div>
+            </div>
+            <div class="col">
+                <a href=""><img src="https://www.dominos.co.in/files/items/MicrosoftTeams-image_(20).png"
+                        class="card-img-top" alt="..."></a>
+                <div class="card-body">
+                    <h5 class="card-title"><span>Chicken Pepperoni</span><br><span class="rate"
+                            value="139">139</span>/-<br><span class="badge text-bg-danger">Non-Veg</span></h5>
+                    <p class="card-text">A classic American taste! Chicken Pepperoni, topped with extra cheese</p>
+                    <div class="counter">
+                        <button class="decr">-</button>
+                        <input class="num" value="0">
+                        <button class="incr">+</button>
+                    </div>
+                    <a href="#" class="btn btn-primary">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="toast toast-bottom-right" id="myToast" role="alert" aria-live="assertive" aria-atomic="true"
+        data-delay="5000">
+        <div class="toast-header">
+            <strong class="mr-auto">Item Added to Cart <span class="tick-icon">&#10003;</span id="toast-head"></strong>
+            <button type="button" class="ml-2 mb-1 close" id="toast-close" data-dismiss="toast" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="toast-body">
+            The Item has been added to the cart succesfully
+        </div>
+    </div>
+    <script src="Popup.js">
+
+    </script>
+    <script>
+        var increment = document.getElementsByClassName('incr');
+        var decrement = document.getElementsByClassName('decr');
+        console.log(increment);
+        console.log(decrement)
+        for (var i = 0; i < increment.length; i++) {
+            var button = increment[i];
+            button.addEventListener('click', function (event) {
+                var buttonClicked = event.target;
+                console.log(buttonClicked)
+                var input = buttonClicked.parentElement.children[1];
+                console.log(input);
+                var inputValue = input.value;
+                console.log(inputValue)
+                var newValue = parseInt(inputValue) + 1;
+                input.value = newValue
+            })
+        }
+        for (var i = 0; i < decrement.length; i++) {
+            var button = decrement[i];
+            button.addEventListener('click', function (event1) {
+                var buttonClicked = event1.target;
+                console.log(buttonClicked)
+                var input = buttonClicked.parentElement.children[1];
+                console.log(input);
+                var inputValue = input.value;
+                console.log(inputValue)
+                var newValue = parseInt(inputValue) - 1;
+                input.value = newValue
+            })
+        }
+        $(document).ready(function () {
+
+            $('#popup-form').submit(function (e) {
+                e.preventDefault();
+                var name = $('#name').val();
+                var cost = $('#cost').val();
+                var count = $('#count').val();
+                var table = 'pizza';
+                $.ajax({
+                    type: 'POST',
+                    url: 'hi.php',
+                    data: {
+                        name: name,
+                        cost: cost,
+                        count: count,
+                        table: table
+                    },
+                    success: function (response) {
+                        document.querySelector(".popup").style.display = "none";
+                        $('#myToast').toast('show');
+                        setTimeout(function () {
+                            window.location.href = "Pizza.html";
+                        }, 3000);
+                    }
+                });
+            });
+
+
+        });
+
+    </script>
+</body>
+
+</html>

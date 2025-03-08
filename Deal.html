@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="Deal.css">
+  <style>
+    .toast-header .close {
+      position: absolute;
+      background-color: white;
+      border: none;
+      right: 0.5rem;
+  top: 0.5rem;
+  z-index: 1;
+  opacity: 0.5;
+    }
+
+    #myToast {
+      position: fixed;
+      bottom: 20px;
+      /* Adjust this value as needed */
+      right: 20px;
+      /* Adjust this value as needed */
+      z-index: 1050;
+      /* Ensure it's above other content */
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ---------------------------------------------------Navbar ---------------------------------------------------------- -->
+  <nav class="navbar navbar-expand-lg " id="main-nav">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="Main.html">
+        <img
+          src="https://img.freepik.com/free-vector/food-shopping-logo-template-design_460848-10299.jpg?size=626&ext=jpg&ga=GA1.1.2082370165.1711411200&semt=ais"
+          id="nav-img">
+        Fast Foodzz
+      </a>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mx-5 mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="Main.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="Menu.html">Our Menu</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Deal.html">Deals</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Contact.html">Contact Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Cart.php">Your Cart</a>
+        </li>
+        </ul>
+
+      </div>
+    </div>
+  </nav>
+
+  <div class="popup">
+    <div class="popup-content">
+      <img
+        src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=250&ixid=MnwxfDB8MXxyYW5kb218MHx8Rm9vZHx8fHx8fDE3MTM2MjA4Njk&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=250"
+        id="image">
+      <!-- <input type="text" value="Lemon" name="dem">
+            <h2><span id="name">Pizza</span></h2>
+            <h6>Quantity ordered : <span id="count"></span></h6>
+            <h6>Total Cost : <span id="cost"></span></h6>
+            <br><button id="close">Close</button>
+            <button onclick="test()">Submit</button> -->
+      <form id="popup-form" class="popup-form" method="post">
+        Name : <input type="text" name="name" value="" id="name"><br>
+        Quantity : <input type="text" name="count" value="" id="count"><br>
+        Cost : <input type="text" name="cost" value="" id="cost"><br>
+        <input type="submit" name="submit" value="Submit"><input type="button" name="close" value="Close" id="close">
+      </form>
+    </div>
+  </div>
+
+
+  <!-- ----------------------------------------------Combo Cards------------------------------------------- -->
+
+  <div class="container text-center">
+    <div class="row align-items-center">
+      <div class="col">
+        <img
+          src="https://marketplace.canva.com/EAE8PTF_Csk/1/0/1600w/canva-special-promo-ice-cream-%28flyer-%28landscape%29%29-8mbEu8aHxEs.jpg">
+        <h5 data-name="IceCream Combo">Buy 2 Icecreams <br>Get 1 for free!!! <br>@ <span>149</span>/-</h5>
+        <div class="counter">
+          <button class="decr">-</button>
+          <input class="num" value="0">
+          <button class="incr">+</button>
+        </div>
+        <button type="button" class="butt">Order Now</button>
+      </div>
+      <div class="col">
+        <img
+          src="https://thumbs.dreamstime.com/b/convenient-set-fast-food-burger-french-fries-glass-cold-coke-convenient-set-fast-food-burger-271980411.jpg">
+        <h5 data-name="Burger-Fries Combo">Get a Burger + Fries <br>+ any 1 Soft drink <br>@ <span>169</span>/-</h5>
+        <div class="counter">
+          <button class="decr">-</button>
+          <input class="num" value="0">
+          <button class="incr">+</button>
+        </div>
+        <button type="button" class="butt">Order Now</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="container text-center">
+    <div class="row align-items-center">
+      <div class="col">
+        <img
+          src="https://static.vecteezy.com/system/resources/thumbnails/008/862/481/small_2x/glass-of-coke-and-pizza-free-photo.jpg">
+        <h5 data-name="Pizza-Drink Combo">Get a Pizza + Any one Soft Drink <br><span></span>@ <span>159</span>/-</h5>
+        <div class="counter">
+          <button class="decr">-</button>
+          <input class="num" value="0">
+          <button class="incr">+</button>
+        </div>
+        <button type="button" class="butt">Order Now</button>
+      </div>
+      <div class="col">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQef-wwIGhHCiunnBi96XFkn2uKCW0rp6ka9A&s">
+        <h5 data-name="Chicken Wings-Popcorm-Fries-Drink Combo">Get Chicken Popcorn + Wings <br>+ Fries and any one Soft
+          Drink <br>@ <span>219</span>/-
+        </h5>
+        <div class="counter">
+          <button class="decr">-</button>
+          <input class="num" value="0">
+          <button class="incr">+</button>
+        </div>
+        <button type="button" class="butt">Order Now</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="container text-center">
+    <div class="row align-items-center">
+      <div class="col">
+        <img
+          src="https://lh3.googleusercontent.com/nFbQ6yF1pLSidYucuJ31NxRDR1OsUY1IUBW61Vf3LF4RE0q7s-OexWjKAudZj0Ny9aIUeUwFpJdFhjYr6KhXM26FWM-NM6c6a0m59S7g4w=w512-rw">
+        <h5 data-name="Rolls-Drink Combo">Get two Rolls + One Drink <br><span></span>@ <span>189</span>/-</h5>
+        <div class="counter">
+          <button class="decr">-</button>
+          <input class="num" value="0">
+          <button class="incr">+</button>
+        </div>
+        <button type="button" class="butt">Order Now</button>
+      </div>
+      <div class="col">
+        <img src="https://b.zmtcdn.com/data/pictures/5/19760845/f938d5fb5fae491f72336b97979b9aac.jpg">
+        <h5 data-name="Big-Three Combo">The Big-Three combo + Fries <br><span></span>+ any two Drinks only @ <span>269</span>/-</h5>
+        <div class="counter">
+          <button class="decr">-</button>
+          <input class="num" value="0">
+          <button class="incr">+</button>
+        </div>
+        <button type="button" class="butt">Order Now</button>
+      </div>
+    </div>
+  </div>
+  <div class="toast toast-bottom-right" id="myToast" role="alert" aria-live="assertive" aria-atomic="true"
+    data-delay="5000">
+    <div class="toast-header">
+      <strong class="mr-auto">Payment Succesful<span class="tick-icon">&#10003;</span id="toast-head"></strong>
+      <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="toast-body">
+      The Item has been added to your cart
+    </div>
+  </div>
+  <script src="Deal Popup.js"></script>
+  <script>
+
+    var increment = document.getElementsByClassName('incr');
+    var decrement = document.getElementsByClassName('decr');
+    console.log(increment);
+    console.log(decrement)
+    for (var i = 0; i < increment.length; i++) {
+      var button = increment[i];
+      button.addEventListener('click', function (event) {
+        var buttonClicked = event.target;
+        console.log(buttonClicked)
+        var input = buttonClicked.parentElement.children[1];
+        console.log(input);
+        var inputValue = input.value;
+        console.log(inputValue)
+        var newValue = parseInt(inputValue) + 1;
+        input.value = newValue
+      })
+    }
+    for (var i = 0; i < decrement.length; i++) {
+      var button = decrement[i];
+      button.addEventListener('click', function (event1) {
+        var buttonClicked = event1.target;
+        console.log(buttonClicked)
+        var input = buttonClicked.parentElement.children[1];
+        console.log(input);
+        var inputValue = input.value;
+        console.log(inputValue)
+        var newValue = parseInt(inputValue) - 1;
+        input.value = newValue
+      })
+    }
+
+    $(document).ready(function () {
+
+      $('#popup-form').submit(function (e) {
+        e.preventDefault();
+        var name = $('#name').val();
+        var cost = $('#cost').val();
+        var count = $('#count').val();
+        var table = 'combo';
+        console.log(name);
+        console.log(cost);
+        console.log(table);
+        console.log(table);
+
+        $.ajax({
+          type: 'POST',
+          url: 'hi.php',
+          data: {
+            name: name,
+            cost: cost,
+            count: count,
+            table: table
+          },
+          success: function (response) {
+            document.querySelector(".popup").style.display = "none";
+            $('#myToast').toast('show');
+
+          }
+        });
+      });
+
+      $('.toast .close').click(function () {
+        // Hide the toast when the close button is clicked
+        $('.toast').toast('hide');
+      });
+    });
+
+
+  </script>
+
+</body>
+
+</html>

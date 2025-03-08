@@ -1,0 +1,20 @@
+@import url(Main.css);
+body{
+    background-color: white;
+}
+.col{
+    height : 350px;
+    width : 300px;
+    text-align: center;
+    margin: 1%;
+    padding: 1%;
+    border-radius: 10%;
+    color: brown;
+    background-color:rgb(250, 247, 247);
+}
+.col img{
+    border-radius: 5%;
+}
+.row{
+    margin: 50px;
+}
